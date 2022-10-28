@@ -1,6 +1,16 @@
 ﻿namespace DinoGame
 {
-    public class Class1
+    public class DinoClass
+    {
+        
+    }
+
+    public class Board
+    {
+
+    }
+
+    public class DinoRunner
     {
 
     }
