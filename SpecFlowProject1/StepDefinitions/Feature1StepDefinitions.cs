@@ -36,8 +36,17 @@ namespace SpecFlowProject1.StepDefinitions
         public void ThenTheManSteps()
         {
             Board game = _sc.Get<Board>("game");
-            char check = game.Get(2, 2);
-            check = '\u0217';
+            char check = game.Get(3,2);
+            check = '\u0192';
         }
+
+        [Then(@"the man stands")]
+        public void ThenTheManStands()
+        {
+            Board game = _sc.Get<Board>("game");
+            char check = game.Get(3,2);
+            check = '\u0032';
+        }
+
     }
 }

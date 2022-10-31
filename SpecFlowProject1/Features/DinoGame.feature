@@ -7,6 +7,12 @@ Scenario: step tester
 	When When time increments
 	Then the man steps
 
+	Scenario: step tester2
+	When When time increments
+	Then the man steps
+	When When time increments
+	Then the man stands
+
 
 	@tag2
 Scenario: dino hit
