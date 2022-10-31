@@ -16,6 +16,6 @@ Scenario: step tester
 
 	@tag2
 Scenario: dino hit
-	Given cactus at 2,3
+	Given cactus at 3,3
 	When When time increments
 	Then the dino is hit and dies

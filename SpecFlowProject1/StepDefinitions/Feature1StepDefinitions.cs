@@ -29,7 +29,7 @@ namespace SpecFlowProject1.StepDefinitions
         {
             Board game = _sc.Get<Board>("game");
             game.Next();
-            _sc.Set<Board>(game, "gmae");
+            _sc.Set<Board>(game, "game");
         }
 
         [Then(@"the man steps")]
