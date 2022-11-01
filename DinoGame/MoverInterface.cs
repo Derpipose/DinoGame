@@ -19,7 +19,7 @@ namespace DinoGame
         }
         public bool HitPlayerCheck()
         {
-            if(screen.board[x, y] != image)
+            if(screen.board[x - 1, y] == '\u0202' || screen.board[x - 1, y] == '\u0225' || screen.board[x - 1, y] == '\u0149' || screen.board[x - 1, y] == '\u0192' )
             {
                 return true;
             }
