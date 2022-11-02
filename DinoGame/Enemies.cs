@@ -65,13 +65,11 @@ namespace DinoGame
     {
         public int x;
         public int y;
-        public Ground(int xIn, int yIn)
+        public Ground()
         {
-            x = xIn;
-            y = yIn;
         }
         //public Dictionary<> location {get;}
-        private char[] graphic = { '\u0178' };
+        public char[] graphic = {  '\u0176', '\u0178', '\u0177'  };
         public char[] Graphic { get; }
         public void MovesForward()
         {
