@@ -14,6 +14,10 @@ Scenario: step tester
 	Then the man stands
 
 
+Scenario: 
+	When When time increments
+	Then cactus moves forward 1 cell
+
 	@tag2
 Scenario: dino hit
 	Given cactus at 3,3

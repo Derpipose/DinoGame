@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DinoGame
 {
@@ -7,6 +8,43 @@ namespace DinoGame
     {
         
     }
+    public class Board1
+    {
+        public char[,] board = new char[10, 7];
+        private Movers movers[];
+        private bool gameRunning = true;
+        public Movers Movers 
+        { 
+            get { return movers; } 
+        }
+
+        public void NextFrame(Movers movers)
+        {
+
+        }
+        public void Killed(bool gameRunning)
+        {
+
+        }
+        public Movers NewEnemy()
+        {
+            return movers;
+        }
+        public void Print(char[,] board)
+        {
+
+        }
+
+    }
+
+    public interface Movers
+    {
+        //public Dictionary<> location {get;}
+        public char[] Graphic { get; }
+        public void MovesForward();
+    }
+
+
 
     public class Board
     {
