@@ -20,7 +20,7 @@ namespace DinoGame
         public Board1(){
             runner = new DinoRunner();
             for (int i = 0; i < boardWidth; i++) {
-                board[1,i] = new Ground(1, i).graphic;    
+                moverList.Add( new Ground(1, i));    
             }
         }
         public Movers Mover(int moveIndex)
