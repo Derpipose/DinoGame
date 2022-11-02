@@ -63,6 +63,13 @@ namespace DinoGame
 
     internal class Ground : Movers
     {
+        public int x;
+        public int y;
+        public Ground(int xIn, int yIn)
+        {
+            x = xIn;
+            y = yIn;
+        }
         //public Dictionary<> location {get;}
         private char[] graphic = { '\u0178' };
         public char[] Graphic { get; }
@@ -72,7 +79,7 @@ namespace DinoGame
         }
     }
 
-    internal class GroundAlt1:Ground, Movers
+    /*internal class GroundAlt1:Ground, Movers
     {
         //public Dictionary<> location {get;}
         private char[] graphic = { '\u0177' };
@@ -85,6 +92,6 @@ namespace DinoGame
         private char[] graphic = { '\u0176' };
         public char[] Graphic { get; }
 
-    }
+    }*/
 
 }

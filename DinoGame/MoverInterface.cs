@@ -14,6 +14,7 @@ namespace DinoGame
         char image { get; set; }
         public void MoveForward()
         {
+
             screen.board[x, y] = '\u0032';
             screen.board[x-=1,y] = image;
         }

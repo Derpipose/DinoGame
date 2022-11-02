@@ -10,29 +10,52 @@ namespace DinoGame
     }
     public class Board1
     {
-        public char[,] board = new char[10, 7];
-        private Movers movers[];
+        private static int boardHeight = 7;
+        private static int boardWidth = 10;
+        public char[,] board = new char[boardWidth, boardHeight];
+        //private Movers movers[];
+        private List<Movers> moverList = new List<Movers>();
         private bool gameRunning = true;
-        public Movers Movers 
+        DinoRunner runner;
+        public Board1(){
+            runner = new DinoRunner();
+            for (int i = 0; i < boardWidth; i++) {
+                board[1,i] = new Ground(1, i).graphic;    
+            }
+        }
+        public Movers Mover(int moveIndex)
         { 
-            get { return movers; } 
+           Movers indexed = moverList[moveIndex]; 
+           return indexed;
         }
 
         public void NextFrame(Movers movers)
         {
-
+            foreach (Movers m in moverList)
+            {
+                m.MovesForward();
+            }
         }
         public void Killed(bool gameRunning)
         {
 
         }
-        public Movers NewEnemy()
+/*        public Movers NewEnemy()
         {
             return movers;
-        }
-        public void Print(char[,] board)
+        }*/
+        public string Print(char[,] board)
         {
-
+            string boardRow = "";
+            for (int j = 0; j < boardHeight; j++) {
+                for (int i = 0; i < boardWidth; i++)
+                {
+                    boardRow += board[i, j];
+                }
+                boardRow += "\n";
+            }
+            
+            return boardRow;
         }
 
     }
