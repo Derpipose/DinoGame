@@ -23,11 +23,7 @@ namespace DinoGame
             Ground BoardGround = new Ground();
             runner = new DinoRunner();
             for (int i = 0; i < boardWidth; i++) {
-<<<<<<< HEAD
                 moverList.Add( new Ground());    
-=======
-                moverList.Add( new Ground(1, i));    
->>>>>>> 9a38e09371c8ca4b0576ba3959d745dcfb1f7bb5
             }
         }
         public Movers Mover(int moveIndex)
