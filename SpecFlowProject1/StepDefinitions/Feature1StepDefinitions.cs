@@ -1,4 +1,5 @@
 using DinoGame;
+using NUnit.Framework;
 using System;
 using TechTalk.SpecFlow;
 
@@ -28,7 +29,7 @@ namespace SpecFlowProject1.StepDefinitions
         public void WhenWhenTimeIncrements()
         {
             Board game = _sc.Get<Board>("game");
-            game.Next();
+            game.NextFrame();
             _sc.Set<Board>(game, "game");
         }
 
@@ -36,17 +37,35 @@ namespace SpecFlowProject1.StepDefinitions
         public void ThenTheManSteps()
         {
             Board game = _sc.Get<Board>("game");
-            char check = game.Get(3,2);
-            check = '\u0192';
+            game.Runner.PlayerStanding.Should().BeTrue();
+
         }
 
         [Then(@"the man stands")]
         public void ThenTheManStands()
         {
             Board game = _sc.Get<Board>("game");
-            char check = game.Get(3,2);
-            check = '\u0032';
+            game.Runner.PlayerStanding.Should().BeFalse();
+
         }
+        [Then(@"cactus moves forward (.*) cell")]
+        public void ThenCactusMovesForwardCell(int p0)
+        {
+            throw new PendingStepException();
+        }
+
+        [Given(@"cactus at (.*)")]
+        public void GivenCactusAt(Decimal p0)
+        {
+            throw new PendingStepException();
+        }
+
+        [Then(@"the dino is hit and dies")]
+        public void ThenTheDinoIsHitAndDies()
+        {
+            throw new PendingStepException();
+        }
+
 
     }
 }

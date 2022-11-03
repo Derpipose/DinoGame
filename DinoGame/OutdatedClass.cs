@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace DinoGame
 {
-    public class OutdatedClass
+/*    public class OutdatedClass
     {
 
     }
@@ -63,5 +63,5 @@ namespace DinoGame
         public char[] Cactus2 = { '\u0240', '\u0241' };
         public char[] Bird = { '\u0174', '\u0170' };
 
-    }
+    }*/
 }
