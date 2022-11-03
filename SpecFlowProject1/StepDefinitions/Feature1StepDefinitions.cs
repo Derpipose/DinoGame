@@ -18,13 +18,6 @@ namespace SpecFlowProject1.StepDefinitions
         }
         private ScenarioContext _sc;
 
-
-        [Given(@"One unit of game time")]
-        public void GivenOneUnitOfGameTime()
-        {
-            throw new PendingStepException();
-        }
-
         [When(@"When time increments")]
         public void WhenWhenTimeIncrements()
         {

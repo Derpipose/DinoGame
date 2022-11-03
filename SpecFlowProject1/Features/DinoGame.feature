@@ -15,6 +15,7 @@ Scenario: step tester
 
 
 Scenario: Cuctus moves
+
 	When When time increments
 	Then cactus moves forward 1 cell
 
