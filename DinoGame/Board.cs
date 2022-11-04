@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
 using System.Numerics;
+using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 
 namespace DinoGame
@@ -14,11 +15,17 @@ namespace DinoGame
         private List<IMovers> moverList = new List<IMovers>();
         private bool gameRunning = true;
         public Player Runner;
+        public int frame = 0;
 
         public Board()
         {
             Runner = new Player();
-            
+            for (int i = 0; i < boardWidth; i++)
+            {
+                moverList.Add(new Ground(i));
+                frame++;
+            }
+
         }
         public IMovers Mover(int moveIndex)
         { 
@@ -29,14 +36,24 @@ namespace DinoGame
         public void NextFrame()
         {
             List<IMovers> temp = new List<IMovers>();   
-            Random random = new Random();   
+            Random random = new Random();
+            int heightOfBird =   Convert.ToInt32(random.Next(0,50));;
             if( random.Next(0,50) == 5)
             {
                 moverList.Add(new CactusShort());
             }
-            if(random.Next(0,50) == 5)
+            if(random.Next(0,50) == 10)
             {
                 moverList.Add(new CactusTall());
+            }
+            if(random.Next(0,50) == 20)
+            {
+                
+                moverList.Add(new SlowBird(heightOfBird));
+            }
+            if (random.Next(0, 50) == 20)
+            {
+                moverList.Add(new FastBird(heightOfBird));
             }
             Runner.MoveForwad();
             foreach (IMovers m in moverList)
@@ -47,8 +64,10 @@ namespace DinoGame
                     temp.Add(m);
                 }
                 
+                
             }
             moverList = temp;
+            moverList.Add(new Ground(boardWidth - 1));
         }
         public void Killed(bool gameRunning)
         {

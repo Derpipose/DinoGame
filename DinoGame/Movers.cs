@@ -61,9 +61,12 @@ namespace DinoGame
     internal class CactusTall : Cactus, IMovers
     {
         public int x;
-        public int y;
-        //public Dictionary<> location {get;}
-        private char[] graphic = { '\u0240', '\u0241' };
+        public int y=2;
+        public CactusTall(){
+            x = Board.boardWidth - 1;
+        }
+    //public Dictionary<> location {get;}
+    private char[] graphic = { '\u0240', '\u0241' };
         public char[] Graphic { get; }
         public void MovesForward()
         {
@@ -73,7 +76,8 @@ namespace DinoGame
         }
         public void print(char[,] board)
         {
-
+            board[x, y] = graphic[0];
+            board[x, y+1] = graphic[1]; 
         }
         public int getLocation()
         {
@@ -81,20 +85,55 @@ namespace DinoGame
         }
     }
 
-    internal class Bird : IMovers
+    internal class SlowBird : IMovers
     {
         public int x;
         public int y;
+
+        public SlowBird(int number)
+        {
+            y = (number % 3) + 4;
+            x = Board.boardWidth - 1;
+        }
         //public Dictionary<> location {get;}
         private char[] graphic = { '\u0170' };
         public char[] Graphic { get; }
         public void MovesForward()
         {
+            x -= 1;
 
         }
         public void print(char[,] board)
         {
+            board[x, y] = graphic[0];
+        }
+        public int getLocation()
+        {
+            return x;
+        }
+    }
 
+    internal class FastBird : IMovers
+    {
+        public int x;
+        public int y;
+
+        public FastBird(int number)
+        {
+            y = (number % 3) + 4;
+            x= Board.boardWidth - 1;    
+        }
+        //public Dictionary<> location {get;}
+        private char[] graphic = { '\u0170' };
+        public char[] Graphic { get; }
+        public void MovesForward()
+        {
+            x -= 2;
+
+        }
+        public void print(char[,] board)
+        {
+            board[x, y] = graphic[0];
         }
         public int getLocation()
         {
@@ -110,7 +149,8 @@ namespace DinoGame
         public Ground(int input)
         {
             x = input;
-            type = input % 3;
+            Random random = new Random();
+            type = Convert.ToInt32(random.Next(0, 3));
         }
         //public Dictionary<> location {get;}
         public char[] graphic = {  '\u0176', '\u0178', '\u0177'  };
