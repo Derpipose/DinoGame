@@ -30,9 +30,13 @@ namespace DinoGame
         {
             List<IMovers> temp = new List<IMovers>();   
             Random random = new Random();   
-            if( random.Next(0,10) == 5)
+            if( random.Next(0,50) == 5)
             {
                 moverList.Add(new CactusShort());
+            }
+            if(random.Next(0,50) == 5)
+            {
+                moverList.Add(new CactusTall());
             }
             Runner.MoveForwad();
             foreach (IMovers m in moverList)
