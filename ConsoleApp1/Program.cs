@@ -8,10 +8,11 @@ bool gameRunning = true;
 
 do
 {
-    Console.Clear();
     Thread.Sleep(500);
+    Console.Clear();
 
     Console.Write(game.Print(game.board));
+    game.NextFrame();
     
 
 } while (gameRunning);

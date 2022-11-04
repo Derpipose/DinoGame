@@ -46,8 +46,13 @@ namespace DinoGame
         }*/
         public string Print(char[,] board)
         {
+            board = new char[boardWidth, boardHeight];
+
+            Runner.print(board);
+
+
             string boardPrint = "";
-            for (int j = 0; j < boardHeight; j++)
+            for (int j = boardHeight-1; j > 0; j--)
             {
                 for (int i = 0; i < boardWidth; i++)
                 {
