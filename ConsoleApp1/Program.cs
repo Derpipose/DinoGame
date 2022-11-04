@@ -13,6 +13,10 @@ do
 
     Console.Write(game.Print(game.board));
     game.NextFrame();
+    if(game.Killed())
+    {
+        gameRunning = false;    
+    }
     
 
 } while (gameRunning);

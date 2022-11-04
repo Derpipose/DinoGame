@@ -72,14 +72,12 @@ namespace DinoGame
             moverList = temp;
             moverList.Add(new Ground(boardWidth - 1));
         }
-        public void Killed(bool gameRunning)
+        public bool Killed()
         {
-
+            //Needs work
+            return false;
         }
-        /*public Movers NewEnemy()
-        {
-            return movers;
-        }*/
+        
         public string Print(char[,] board)
         {
             board = new char[boardWidth, boardHeight];

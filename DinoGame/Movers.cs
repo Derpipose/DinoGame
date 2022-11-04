@@ -13,6 +13,7 @@ namespace DinoGame
         public void MovesForward();
         public void print(char[,] board);
         public int getLocation();
+        public bool HitPlayer();
     }
 
     internal class Cactus : IMovers
@@ -30,7 +31,11 @@ namespace DinoGame
         }
         public int getLocation() {
             return 0;
-        }    
+        }
+
+        public bool HitPlayer() {
+            return false;
+        }
     }
 
     internal class CactusShort :Cactus, IMovers
@@ -38,14 +43,19 @@ namespace DinoGame
         public CactusShort()
         {
             x = Board.boardWidth - 1;
+            hitPlayer = false;
         }
         public int x;
         public int y = 2;
-        //public Dictionary<> location {get;}
+        bool hitPlayer;
+
+
         private char[] graphic = { '#' };
         public char[] Graphic { get; }
         public void MovesForward()
-        {
+        {   
+            //Need to figure out how to check ahead. 
+           // if (Board.board[x-1,y] != '\u0000')
             x -= 1;
             
         }
@@ -55,6 +65,10 @@ namespace DinoGame
         }
         public int getLocation() {
             return x;
+        }
+        public bool HitPlayer()
+        {
+            return hitPlayer;
         }
     }
 
@@ -81,6 +95,10 @@ namespace DinoGame
         public int getLocation()
         {
             return x;
+        }
+        public bool HitPlayer()
+        {
+            return false;
         }
     }
 
@@ -110,6 +128,10 @@ namespace DinoGame
         {
             return x;
         }
+        public bool HitPlayer()
+        {
+            return false;
+        }
     }
 
     internal class FastBird : IMovers
@@ -137,6 +159,10 @@ namespace DinoGame
         public int getLocation()
         {
             return x;
+        }
+        public bool HitPlayer()
+        {
+            return false;
         }
     }
 
@@ -166,6 +192,10 @@ namespace DinoGame
         public int getLocation()
         {
             return x;
+        }
+        public bool HitPlayer()
+        {
+            return false;
         }
     }
 
