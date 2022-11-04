@@ -10,6 +10,7 @@ namespace DinoGame
     {
         public char[] Graphic { get; }
         public void MovesForward();
+        public void print(char[,] board);
     }
 
     internal class Cactus : IMovers
@@ -21,16 +22,34 @@ namespace DinoGame
         {
 
         }
+        public void print(char[,] board)
+        {
+
+        }
     }
 
     internal class CactusShort :Cactus, IMovers
     {
+        public CactusShort()
+        {
+            x = Board.boardWidth - 1;
+        }
+        public int x;
+        public int y = 2;
         //public Dictionary<> location {get;}
         private char[] graphic = { '\u0241' };
         public char[] Graphic { get; }
         public void MovesForward()
         {
-
+            x -= 1;
+            if (x < 0)
+            {
+                x = Board.boardWidth - 1;
+            }
+        }
+        public void print(char[,] board)
+        {
+            board[x, y] = graphic[0];
         }
     }
 
@@ -42,6 +61,11 @@ namespace DinoGame
         public void MovesForward()
         {
             
+
+
+        }
+        public void print(char[,] board)
+        {
 
         }
     }
@@ -55,21 +79,36 @@ namespace DinoGame
         {
 
         }
+        public void print(char[,] board)
+        {
+
+        }
     }
 
     internal class Ground : IMovers
     {
         public int x;
-        public int y;
-        public Ground()
+        public int y=1;
+        public int type;
+        public Ground(int input)
         {
+            x = input;
+            type = input % 3;
         }
         //public Dictionary<> location {get;}
         public char[] graphic = {  '\u0176', '\u0178', '\u0177'  };
         public char[] Graphic { get; }
         public void MovesForward()
         {
-
+            x -= 1;
+            if (x < 0)
+            {
+                x = Board.boardWidth-1;
+            }
+        }
+        public void print(char[,] board)
+        {
+            board[x,y] = graphic[type];
         }
     }
 

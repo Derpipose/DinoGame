@@ -26,5 +26,7 @@ namespace DinoGame
             }
             else return false;  
         }
+
+        public void print();
     }
 }

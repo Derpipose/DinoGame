@@ -8,7 +8,7 @@ namespace DinoGame
     public class Board
     {
         private static int boardHeight = 7;
-        private static int boardWidth = 10;
+        internal static int boardWidth = 20;
         public char[,] board = new char[boardWidth, boardHeight];
         //private Movers movers[];
         private List<IMovers> moverList = new List<IMovers>();
@@ -19,7 +19,7 @@ namespace DinoGame
         {
             Runner = new Player();
             for (int i = 0; i < boardWidth; i++) {
-                moverList.Add( new Ground());    
+                moverList.Add( new Ground(i));    
             }
         }
         public IMovers Mover(int moveIndex)
@@ -30,6 +30,12 @@ namespace DinoGame
 
         public void NextFrame()
         {
+            Random random = new Random();   
+            if( random.Next(0,30) == 20)
+            {
+                moverList.Add(new CactusShort());
+            }
+            moverList.Add(new CactusShort());
             Runner.MoveForwad();
             foreach (IMovers m in moverList)
             {
@@ -49,7 +55,10 @@ namespace DinoGame
             board = new char[boardWidth, boardHeight];
 
             Runner.print(board);
-
+            foreach (IMovers m in moverList)
+            {
+                m.print(board);
+            }
 
             string boardPrint = "";
             for (int j = boardHeight-1; j > 0; j--)
