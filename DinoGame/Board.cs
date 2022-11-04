@@ -39,7 +39,23 @@ namespace DinoGame
             Random random = new Random();
             int freq = 30;
             int heightOfBird =   Convert.ToInt32(random.Next(0,50));;
-            if( random.Next(0,freq) == 5)
+
+
+            Runner.MoveForwad();
+            foreach (IMovers m in moverList)
+            {
+                m.MovesForward();
+                if (m.getLocation() > 0)
+                {
+                    temp.Add(m);
+                }
+
+
+            }
+            moverList = temp;
+            moverList.Add(new Ground(boardWidth - 1));
+
+            if ( random.Next(0,freq) == 5)
             {
                 moverList.Add(new CactusShort());
             }
@@ -58,19 +74,7 @@ namespace DinoGame
             }
 
 
-            Runner.MoveForwad();
-            foreach (IMovers m in moverList)
-            {
-                m.MovesForward();
-                if(m.getLocation() > 0)
-                {
-                    temp.Add(m);
-                }
-                
-                
-            }
-            moverList = temp;
-            moverList.Add(new Ground(boardWidth - 1));
+            
         }
         public bool Killed()
         {
