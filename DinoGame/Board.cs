@@ -37,24 +37,27 @@ namespace DinoGame
         {
             List<IMovers> temp = new List<IMovers>();   
             Random random = new Random();
+            int freq = 30;
             int heightOfBird =   Convert.ToInt32(random.Next(0,50));;
-            if( random.Next(0,50) == 5)
+            if( random.Next(0,freq) == 5)
             {
                 moverList.Add(new CactusShort());
             }
-            if(random.Next(0,50) == 10)
+            if(random.Next(0,freq) == 10)
             {
                 moverList.Add(new CactusTall());
             }
-            if(random.Next(0,50) == 20)
+            if(random.Next(0,freq) == 20)
             {
                 
                 moverList.Add(new SlowBird(heightOfBird));
             }
-            if (random.Next(0, 50) == 20)
+            if (random.Next(0, freq) == 20)
             {
                 moverList.Add(new FastBird(heightOfBird));
             }
+
+
             Runner.MoveForwad();
             foreach (IMovers m in moverList)
             {

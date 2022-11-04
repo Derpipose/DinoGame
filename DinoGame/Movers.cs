@@ -70,8 +70,7 @@ namespace DinoGame
         public char[] Graphic { get; }
         public void MovesForward()
         {
-            
-
+            x -= 1;
 
         }
         public void print(char[,] board)
@@ -158,10 +157,7 @@ namespace DinoGame
         public void MovesForward()
         {
             x -= 1;
-            if (x < 0)
-            {
-                x = Board.boardWidth-1;
-            }
+            
         }
         public void print(char[,] board)
         {
