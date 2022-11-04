@@ -37,7 +37,7 @@ namespace DinoGame
         public int x;
         public int y = 2;
         //public Dictionary<> location {get;}
-        private char[] graphic = { '\u0241' };
+        private char[] graphic = { '#' };
         public char[] Graphic { get; }
         public void MovesForward()
         {

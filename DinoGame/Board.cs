@@ -18,9 +18,7 @@ namespace DinoGame
         public Board()
         {
             Runner = new Player();
-            for (int i = 0; i < boardWidth; i++) {
-                moverList.Add( new Ground(i));    
-            }
+            
         }
         public IMovers Mover(int moveIndex)
         { 
@@ -65,7 +63,14 @@ namespace DinoGame
             {
                 for (int i = 0; i < boardWidth; i++)
                 {
-                    boardPrint += board[i, j];
+                    if (board[i, j] == '\u0000')
+                    {
+                        boardPrint += " ";
+                    }
+                    else
+                    {
+                        boardPrint += board[i, j];
+                    }
                 }
                 boardPrint += "\n";
             }
