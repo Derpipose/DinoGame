@@ -8,7 +8,7 @@ namespace DinoGame
     public class Board
     {
         private static int boardHeight = 7;
-        internal static int boardWidth = 20;
+        internal static int boardWidth = 10;
         public char[,] board = new char[boardWidth, boardHeight];
         //private Movers movers[];
         private List<IMovers> moverList = new List<IMovers>();
@@ -28,17 +28,23 @@ namespace DinoGame
 
         public void NextFrame()
         {
+            List<IMovers> temp = new List<IMovers>();   
             Random random = new Random();   
-            if( random.Next(0,30) == 20)
+            if( random.Next(0,10) == 5)
             {
                 moverList.Add(new CactusShort());
             }
-            moverList.Add(new CactusShort());
             Runner.MoveForwad();
             foreach (IMovers m in moverList)
             {
                 m.MovesForward();
+                if(m.getLocation() > 0)
+                {
+                    temp.Add(m);
+                }
+                
             }
+            moverList = temp;
         }
         public void Killed(bool gameRunning)
         {

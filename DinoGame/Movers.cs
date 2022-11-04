@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace DinoGame
         public char[] Graphic { get; }
         public void MovesForward();
         public void print(char[,] board);
+        public int getLocation();
     }
 
     internal class Cactus : IMovers
@@ -26,6 +28,9 @@ namespace DinoGame
         {
 
         }
+        public int getLocation() {
+            return 0;
+        }    
     }
 
     internal class CactusShort :Cactus, IMovers
@@ -42,19 +47,21 @@ namespace DinoGame
         public void MovesForward()
         {
             x -= 1;
-            if (x < 0)
-            {
-                x = Board.boardWidth - 1;
-            }
+            
         }
         public void print(char[,] board)
         {
             board[x, y] = graphic[0];
         }
+        public int getLocation() {
+            return x;
+        }
     }
 
     internal class CactusTall : Cactus, IMovers
     {
+        public int x;
+        public int y;
         //public Dictionary<> location {get;}
         private char[] graphic = { '\u0240', '\u0241' };
         public char[] Graphic { get; }
@@ -68,10 +75,16 @@ namespace DinoGame
         {
 
         }
+        public int getLocation()
+        {
+            return x;
+        }
     }
 
     internal class Bird : IMovers
     {
+        public int x;
+        public int y;
         //public Dictionary<> location {get;}
         private char[] graphic = { '\u0170' };
         public char[] Graphic { get; }
@@ -82,6 +95,10 @@ namespace DinoGame
         public void print(char[,] board)
         {
 
+        }
+        public int getLocation()
+        {
+            return x;
         }
     }
 
@@ -109,6 +126,10 @@ namespace DinoGame
         public void print(char[,] board)
         {
             board[x,y] = graphic[type];
+        }
+        public int getLocation()
+        {
+            return x;
         }
     }
 
