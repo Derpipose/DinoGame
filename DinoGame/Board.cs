@@ -11,9 +11,9 @@ namespace DinoGame
         private static int boardHeight = 7;
         internal static int boardWidth = 10;
         public char[,] board = new char[boardWidth, boardHeight];
-        //private Movers movers[];
         private List<IMovers> moverList = new List<IMovers>();
         private bool gameRunning = true;
+        public bool GameRunning { get { return gameRunning; } }
         public Player Runner;
         public int frame = 0;
 
@@ -41,7 +41,7 @@ namespace DinoGame
             int heightOfBird =   Convert.ToInt32(random.Next(0,50));;
 
 
-            Runner.MoveForwad();
+            Runner.MoveForward();
             foreach (IMovers m in moverList)
             {
                 m.MovesForward();
@@ -76,17 +76,31 @@ namespace DinoGame
 
             
         }
-        public bool Killed()
+        public void Killed()
         {
             //Needs work
-            return false;
+
+            foreach (int y in Runner.playerLocation.y)
+            {
+                foreach (IMovers m in moverList)
+                {
+                    if (m.getLocation() == y && m.getHeight() == Runner.playerLocation.x[1])
+                    {
+                        gameRunning = false;
+                    }
+
+                }
+            }
+
+
+
         }
         
         public string Print(char[,] board)
         {
             board = new char[boardWidth, boardHeight];
 
-            Runner.print(board);
+            Runner.Print(board);
             foreach (IMovers m in moverList)
             {
                 m.print(board);

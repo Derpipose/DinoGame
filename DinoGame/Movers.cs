@@ -13,6 +13,7 @@ namespace DinoGame
         public void MovesForward();
         public void print(char[,] board);
         public int getLocation();
+        public int getHeight();
         public bool HitPlayer();
     }
 
@@ -32,6 +33,10 @@ namespace DinoGame
         public int getLocation() {
             return 0;
         }
+        public int getHeight()
+        {
+            return 0;
+        }
 
         public bool HitPlayer() {
             return false;
@@ -40,24 +45,28 @@ namespace DinoGame
 
     internal class CactusShort :Cactus, IMovers
     {
-        public CactusShort()
-        {
-            x = Board.boardWidth - 1;
-            hitPlayer = false;
-        }
+
         public int x;
         public int y = 2;
         bool hitPlayer;
+        public CactusShort()
+        {
+
+            x = Board.boardWidth - 1;
+            hitPlayer = false;
+        }
+        
 
 
         private char[] graphic = { '#' };
         public char[] Graphic { get; }
         public void MovesForward()
-        {   
+        {
             //Need to figure out how to check ahead. 
-           // if (Board.board[x-1,y] != '\u0000')
+            // if (Board.board[x-1,y] != '\u0000')
             x -= 1;
             
+
         }
         public void print(char[,] board)
         {
@@ -65,6 +74,10 @@ namespace DinoGame
         }
         public int getLocation() {
             return x;
+        }
+        public int getHeight()
+        {
+            return y;
         }
         public bool HitPlayer()
         {
@@ -95,6 +108,10 @@ namespace DinoGame
         public int getLocation()
         {
             return x;
+        }
+        public int getHeight()
+        {
+            return y;
         }
         public bool HitPlayer()
         {
@@ -128,6 +145,10 @@ namespace DinoGame
         {
             return x;
         }
+        public int getHeight()
+        {
+            return y;
+        }
         public bool HitPlayer()
         {
             return false;
@@ -159,6 +180,10 @@ namespace DinoGame
         public int getLocation()
         {
             return x;
+        }
+        public int getHeight()
+        {
+            return y;
         }
         public bool HitPlayer()
         {
@@ -192,6 +217,10 @@ namespace DinoGame
         public int getLocation()
         {
             return x;
+        }
+        public int getHeight()
+        {
+            return y;
         }
         public bool HitPlayer()
         {

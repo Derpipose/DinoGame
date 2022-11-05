@@ -3,7 +3,7 @@ using DinoGame;
 
 
 Board game = new Board();
-bool gameRunning = true;
+
 
 
 do
@@ -13,11 +13,9 @@ do
 
     Console.Write(game.Print(game.board));
     game.NextFrame();
-    if(game.Killed())
-    {
-        gameRunning = false;    
-    }
-    
+    game.Killed();
 
-} while (gameRunning);
+
+
+} while (game.GameRunning);
 
