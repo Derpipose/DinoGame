@@ -4,7 +4,7 @@ using System.Numerics;
 using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+using System.Windows;
 
 namespace DinoGame
 {
@@ -37,8 +37,11 @@ namespace DinoGame
            IMovers indexed = moverList[moveIndex]; 
            return indexed;
         }
+
+
         public void getInput()
         {
+
             void Canvas_KeyDown(object sender, KeyEventArgs e)
             {
                 if (e.KeyCode == Key.Down)
