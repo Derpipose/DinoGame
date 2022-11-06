@@ -14,6 +14,8 @@ do
     Console.Write(game.Print(game.board));
     game.NextFrame();
     game.Killed();
+    game.getInput();
+
 
 
 

@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Numerics;
 using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
 namespace DinoGame
 {
@@ -16,6 +17,7 @@ namespace DinoGame
         public bool GameRunning { get { return gameRunning; } }
         public Player Runner;
         public int frame = 0;
+        internal int status=0;
 
         public Board()
         {
@@ -32,6 +34,20 @@ namespace DinoGame
            IMovers indexed = moverList[moveIndex]; 
            return indexed;
         }
+        public void getInput()
+        {
+            void Canvas_KeyDown(object sender, KeyEventArgs e)
+            {
+                if (e.Key == Key.Down)
+                {
+                    status = 4; 
+                }
+                else if (e.Key == Key.Up)
+                {
+                    status = -4; 
+                }
+            }
+        }
 
         public void NextFrame()
         {
@@ -41,7 +57,15 @@ namespace DinoGame
             int heightOfBird =   Convert.ToInt32(random.Next(0,50));;
 
 
-            Runner.MoveForward();
+            Runner.MoveForward(status);
+            if(status > 0)
+            {
+                status++;
+            }
+            else if(status < 0)
+            {
+                status--;
+            }
             foreach (IMovers m in moverList)
             {
                 m.MovesForward();

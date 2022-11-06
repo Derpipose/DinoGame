@@ -13,6 +13,8 @@ namespace DinoGame
         private char[] walking = { '|', '#', '@', 'L' };
 
         private bool playerStanding = false;
+        private bool playerJumping = false;
+        private bool playerDucking = false;
         public bool PlayerStanding { get { return playerStanding; } }
         public Location playerLocation = new Location();
 
@@ -31,22 +33,35 @@ namespace DinoGame
             playerLocation.y.Add(2);
         }
 
-        public void MoveForward()
+        public void MoveForward(int status)
         {
-            if (playerStanding == true)
+            if (status > 0)
             {
-                playerStanding = false;
-                playerLocation.x.Add(3);
-                playerLocation.y.Add(2);
+                //ducking
+
+            }
+            else if (status < 0)
+            {
+                //jumping
 
             }
             else
             {
-                playerStanding = true;
+                if (playerStanding == true)
+                {
+                    playerStanding = false;
+                    playerLocation.x.Add(3);
+                    playerLocation.y.Add(2);
 
-                playerLocation.x.RemoveAt(3);
-                playerLocation.y.RemoveAt(3);
+                }
+                else
+                {
+                    playerStanding = true;
 
+                    playerLocation.x.RemoveAt(3);
+                    playerLocation.y.RemoveAt(3);
+
+                }
             }
 
         }
