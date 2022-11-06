@@ -46,7 +46,7 @@ namespace DinoGame
             {
                 if (e.KeyCode == Key.Down)
                 {
-                    status = 4; 
+                    status = 2; 
                 }
                 else if (e.Key == Key.Up)
                 {
