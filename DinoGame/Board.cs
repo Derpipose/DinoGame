@@ -4,6 +4,7 @@ using System.Numerics;
 using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace DinoGame
 {
@@ -18,6 +19,8 @@ namespace DinoGame
         public Player Runner;
         public int frame = 0;
         internal int status=0;
+
+        public class KeyEventArgs : EventArgs { }
 
         public Board()
         {
@@ -38,7 +41,7 @@ namespace DinoGame
         {
             void Canvas_KeyDown(object sender, KeyEventArgs e)
             {
-                if (e.Key == Key.Down)
+                if (e.KeyCode == Key.Down)
                 {
                     status = 4; 
                 }
