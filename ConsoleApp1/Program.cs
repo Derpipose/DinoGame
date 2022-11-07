@@ -8,7 +8,7 @@ Board game = new Board();
 
 do
 {
-    Thread.Sleep(250);
+    Thread.Sleep(100);
     Console.Clear();
 
     Console.Write(game.Print(game.board));

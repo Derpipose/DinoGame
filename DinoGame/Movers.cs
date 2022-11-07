@@ -99,8 +99,7 @@ namespace DinoGame
         public CactusTall(){
             x = Board.boardWidth - 1;
         }
-    //public Dictionary<> location {get;}
-    private char[] graphic = { '\u0240', '\u0241' };
+        private char[] graphic = { '\u0240', '\u0241' };
         public char[] Graphic { get; }
         public void MovesForward()
         {

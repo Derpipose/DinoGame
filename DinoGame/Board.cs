@@ -12,7 +12,7 @@ namespace DinoGame
     {
         int score = 0;
         private static int boardHeight = 7;
-        internal static int boardWidth = 60;
+        internal static int boardWidth = 61;
         public char[,] board = new char[boardWidth, boardHeight];
         private List<IMovers> moverList = new List<IMovers>();
         private bool gameRunning = true;
