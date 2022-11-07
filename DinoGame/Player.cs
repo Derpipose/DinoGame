@@ -40,18 +40,22 @@ namespace DinoGame
             {
                 //ducking
                 playerDucking = true;
+                playerJump = status;
 
             }
             else if (status < 0)
             {
                 //jumping
                 playerJumping = true;
+                playerJump = status;
 
             }
-            else
+            else if(status == 0)
             {
-                playerJumping=false;
-                playerDucking=false;    
+                playerJump = status;
+                playerJumping = false;
+                playerDucking = false; 
+                
                 if (playerStanding == true)
                 {
                     playerStanding = false;
@@ -79,7 +83,7 @@ namespace DinoGame
                 board[playerLocation.x[1], playerLocation.y[1]] = stand[2];
                 return;
             }
-            if(playerJumping == true)
+            else if(playerJumping == true)
             {
                 if (playerJump == 4 || playerJump == 1)
                 {
@@ -95,7 +99,7 @@ namespace DinoGame
                 }
 
             }
-            if (playerStanding == true)
+            else if (playerStanding == true)
             {
                 board[playerLocation.x[0], playerLocation.y[0]] = stand[0];
                 board[playerLocation.x[1], playerLocation.y[1]] = stand[1];

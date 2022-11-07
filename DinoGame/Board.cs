@@ -42,15 +42,21 @@ namespace DinoGame
         public void getInput()
         {
 
-            void Canvas_KeyDown(object sender, KeyEventArgs e)
+            
+            while (Console.KeyAvailable)
             {
-                if (e.KeyCode == Key.Down)
+                var ch = Console.ReadKey(false).Key;
+                switch (ch)
                 {
-                    status = 2; 
-                }
-                else if (e.Key == Key.Up)
-                {
-                    status = -4; 
+                    case ConsoleKey.Escape:
+                        Console.WriteLine("\nGame is now ended (escape key pressed).");
+                        return;
+                    case ConsoleKey.UpArrow:
+                        status = -4;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        status = 2;
+                        break;
                 }
             }
         }
@@ -66,11 +72,11 @@ namespace DinoGame
             Runner.MoveForward(status);
             if(status > 0)
             {
-                status++;
+                status+=1;
             }
             else if(status < 0)
             {
-                status--;
+                status-=1;
             }
             foreach (IMovers m in moverList)
             {
