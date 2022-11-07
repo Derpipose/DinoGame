@@ -127,18 +127,19 @@ namespace DinoGame
         }
         public void Killed()
         {
-            //Needs work
-
-            foreach (int y in Runner.playerLocation.y)
+            
+            foreach (IMovers m in moverList)
             {
-                foreach (IMovers m in moverList)
+                for(int i = 0; i < Runner.playerLocation.x.Count; i++)
                 {
-                    if (m.getLocation() == y && m.getHeight() == Runner.playerLocation.y[1])
+                    if (m.getHeight() == Runner.playerLocation.y[i] && m.getLocation() == Runner.playerLocation.x[i])
                     {
                         gameRunning = false;
                     }
                 }
+                    
             }
+            
         }
         
         public void Escape()
