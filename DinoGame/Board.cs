@@ -10,8 +10,9 @@ namespace DinoGame
 {
     public class Board
     {
+        int score = 0;
         private static int boardHeight = 7;
-        internal static int boardWidth = 10;
+        internal static int boardWidth = 60;
         public char[,] board = new char[boardWidth, boardHeight];
         private List<IMovers> moverList = new List<IMovers>();
         private bool gameRunning = true;
@@ -49,7 +50,8 @@ namespace DinoGame
                 switch (ch)
                 {
                     case ConsoleKey.Escape:
-                        Console.WriteLine("\nGame is now ended (escape key pressed).");
+                        Console.WriteLine("\n  Game is now ended (escape key pressed).");
+                        Escape();
                         return;
                     case ConsoleKey.UpArrow:
                         if (status == 0)
@@ -94,8 +96,10 @@ namespace DinoGame
                 {
                     temp.Add(m);
                 }
-
-
+                else
+                {
+                    score += m.getScore();
+                }
             }
             moverList = temp;
             moverList.Add(new Ground(boardWidth - 1));
@@ -129,18 +133,19 @@ namespace DinoGame
             {
                 foreach (IMovers m in moverList)
                 {
-                    if (m.getLocation() == y && m.getHeight() == Runner.playerLocation.x[1])
+                    if (m.getLocation() == y && m.getHeight() == Runner.playerLocation.y[1])
                     {
                         gameRunning = false;
                     }
-
                 }
             }
-
-
-
         }
         
+        public void Escape()
+        {
+            gameRunning = false;
+        }
+
         public string Print(char[,] board)
         {
             board = new char[boardWidth, boardHeight];
@@ -167,7 +172,7 @@ namespace DinoGame
                 }
                 boardPrint += "\n";
             }
-
+            Console.WriteLine($"Score:{score}");
             return boardPrint;
         }
 

@@ -12,6 +12,7 @@ namespace DinoGame
         int x { get; set; }
         int y { get; set; }
         char image { get; set; }
+
         public void MoveForward()
         {
 

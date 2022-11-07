@@ -15,6 +15,7 @@ namespace DinoGame
         public int getLocation();
         public int getHeight();
         public bool HitPlayer();
+        public int getScore();
     }
 
     internal class Cactus : IMovers
@@ -25,6 +26,10 @@ namespace DinoGame
         public void MovesForward()
         {
 
+        }
+        public int getScore()
+        {
+            return 0;
         }
         public void print(char[,] board)
         {
@@ -65,8 +70,10 @@ namespace DinoGame
             //Need to figure out how to check ahead. 
             // if (Board.board[x-1,y] != '\u0000')
             x -= 1;
-            
-
+        }
+        public int getScore()
+        {
+            return 5;
         }
         public void print(char[,] board)
         {
@@ -98,7 +105,10 @@ namespace DinoGame
         public void MovesForward()
         {
             x -= 1;
-
+        }
+        public int getScore()
+        {
+            return 10;
         }
         public void print(char[,] board)
         {
@@ -135,7 +145,10 @@ namespace DinoGame
         public void MovesForward()
         {
             x -= 1;
-
+        }
+        public int getScore()
+        {
+            return 5;
         }
         public void print(char[,] board)
         {
@@ -171,7 +184,10 @@ namespace DinoGame
         public void MovesForward()
         {
             x -= 2;
-
+        }
+        public int getScore()
+        {
+            return 10;
         }
         public void print(char[,] board)
         {
@@ -209,6 +225,10 @@ namespace DinoGame
         {
             x -= 1;
             
+        }
+        public int getScore()
+        {
+            return 1;
         }
         public void print(char[,] board)
         {

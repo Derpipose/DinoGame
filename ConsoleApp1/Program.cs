@@ -8,13 +8,13 @@ Board game = new Board();
 
 do
 {
-    Thread.Sleep(500);
+    Thread.Sleep(250);
     Console.Clear();
 
     Console.Write(game.Print(game.board));
+    game.getInput();
     game.NextFrame();
     game.Killed();
-    game.getInput();
 
 
 
