@@ -52,10 +52,17 @@ namespace DinoGame
                         Console.WriteLine("\nGame is now ended (escape key pressed).");
                         return;
                     case ConsoleKey.UpArrow:
+                        if (status == 0)
+                        {
                         status = -4;
+                        }
                         break;
                     case ConsoleKey.DownArrow:
+                        if(status == 0)
+                        {
                         status = 2;
+
+                        }
                         break;
                 }
             }
@@ -70,12 +77,14 @@ namespace DinoGame
 
 
             Runner.MoveForward(status);
-            if(status > 0)
+            if(status < 0)
             {
+                //duck
                 status+=1;
             }
-            else if(status < 0)
+            else if(status > 0)
             {
+                //jump
                 status-=1;
             }
             foreach (IMovers m in moverList)
